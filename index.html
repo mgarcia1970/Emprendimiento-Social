@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva: Emprendimiento Social - Colegio Montano</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        montanoBlue: '#1269A8',
+                        montanoYellow: '#F7D615',
+                        montanoGreen: '#54887D',
+                        montanoLightBlue: '#88B5C7',
+                        montanoOlive: '#A6B046',
+                        montanoBg: '#F2F5E9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F5E9;
+        }
+        .pizarra-border {
+            border: 4px solid #F7D615;
+        }
+        /* Custom scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F2F5E9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #88B5C7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800 p-2 sm:p-6 flex flex-col justify-between">
+
+    <!-- Main Container styled like a Digital Whiteboard -->
+    <div id="whiteboard-container" class="w-full max-w-7xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col flex-grow pizarra-border relative">
+        
+        <!-- Top Header / Bar -->
+        <header class="bg-montanoBlue text-white p-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 border-b-4 border-montanoYellow">
+            <div class="flex items-center space-x-4">
+                <!-- Institutional Logo -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyEop0yf6lZ7Jk9MILZxF1rBj4Oqs5esyhIQ&s" alt="Logo Colegio Montano" class="h-12 w-12 rounded-full object-cover bg-white p-1 border-2 border-montanoYellow shadow-md" onerror="this.src='https://placehold.co/100x100/1269A8/FFFFFF?text=CM'">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-wide">Colegio Montano</h1>
+                    <p class="text-xs sm:text-sm text-montanoLightBlue font-medium">Guía de Aprendizaje Interactivo | Tercero Básico</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <span class="bg-montanoOlive text-white text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-wider shadow">Tema: Emprendimiento Social</span>
+                <!-- Fullscreen Button -->
+                <button onclick="toggleFullScreen()" class="bg-montanoYellow text-gray-900 font-bold px-4 py-2 rounded-lg text-sm flex items-center gap-2 hover:bg-yellow-400 transition transform active:scale-95 shadow">
+                    <span>[ ⛶ Pantalla completa ]</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Horizontal Interactive Tabs Navigation -->
+        <nav class="bg-montanoGreen text-white flex flex-wrap justify-center md:justify-start px-4 gap-2 py-3 border-b border-montanoLightBlue shadow-inner">
+            <button onclick="switchTab('teoria')" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-montanoBlue text-white shadow" data-target="teoria">1. Explicación Teórica</button>
+            <button onclick="switchTab('ejemplos')" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition hover:bg-montanoGreen/80 text-white" data-target="ejemplos">2. Ejemplos Resueltos</button>
+            <button onclick="switchTab('ejercicios')" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition hover:bg-montanoGreen/80 text-white" data-target="ejercicios">3. Ejercicios Prácticos</button>
+            <button onclick="switchTab('reflexion')" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition hover:bg-montanoGreen/80 text-white" data-target="reflexion">4. Reflexión Crítica</button>
+            <button onclick="switchTab('evaluacion')" class="tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition hover:bg-montanoGreen/80 text-white" data-target="evaluacion">5. Evaluación Formativa</button>
+        </nav>
+
+        <!-- Dynamic Content Canvas Area -->
+        <main class="p-4 sm:p-8 bg-montanoBg overflow-y-auto flex-grow">
+
+            <!-- TAB 1: TEORÍA -->
+            <section id="teoria" class="tab-content space-y-6">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-8 border-montanoBlue">
+                    <h2 class="text-2xl font-bold text-montanoBlue mb-4">¿Qué es el Emprendimiento Social?</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Un <strong>emprendimiento social</strong> es un proyecto u organización que aplica estrategias de mercado y comerciales no con el objetivo primordial de enriquecer a sus dueños, sino para <strong>resolver un problema social o ambiental crítico</strong> (como la pobreza, el cambio climático, la falta de educación o la exclusión laboral). Busca generar un impacto transformador sostenible en las comunidades.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-montanoLightBlue/20 p-4 rounded-lg border border-montanoLightBlue">
+                            <h3 class="font-bold text-montanoBlue text-lg mb-2">1. Propósito Social / Ambiental</h3>
+                            <p class="text-sm text-gray-600">Su razón de ser es mejorar la calidad de vida de grupos vulnerables o cuidar el planeta por encima de la acumulación de capital privado.</p>
+                        </div>
+                        <div class="bg-montanoLightBlue/20 p-4 rounded-lg border border-montanoLightBlue">
+                            <h3 class="font-bold text-montanoBlue text-lg mb-2">2. Sostenibilidad Financiera</h3>
+                            <p class="text-sm text-gray-600">A diferencia de una caridad pura que depende 100% de donaciones, el emprendimiento social genera sus propios ingresos vendiendo productos o servicios.</p>
+                        </div>
+                        <div class="bg-montanoLightBlue/20 p-4 rounded-lg border border-montanoLightBlue">
+                            <h3 class="font-bold text-montanoBlue text-lg mb-2">3. Innovación y Empatía</h3>
+                            <p class="text-sm text-gray-600">Utilizan métodos creativos y tecnología para dar respuestas eficientes a necesidades desatendidas por el mercado tradicional o el Estado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-8 border-montanoOlive">
+                    <h3 class="text-xl font-bold text-montanoGreen mb-3">Diferencias clave: Emprendimiento Tradicional vs. Social</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-montanoBlue text-white">
+                                    <th class="p-3 rounded-tl-lg">Característica</th>
+                                    <th class="p-3">Emprendimiento Comercial (Tradicional)</th>
+                                    <th class="p-3 rounded-tr-lg">Emprendimiento Social</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-3 font-semibold text-montanoBlue">Objetivo Principal</td>
+                                    <td class="p-3">Maximizar ganancias financieras para los socios.</td>
+                                    <td class="p-3">Maximizar el impacto social o ambiental positivo.</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="p-3 font-semibold text-montanoBlue">Destino de Utilidades</td>
+                                    <td class="p-3">Repartirse dividendos entre inversores.</td>
+                                    <td class="p-3">Reinversión mayoritaria en la propia misión social.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-montanoBlue">Medición de Éxito</td>
+                                    <td class="p-3">Retorno de inversión (ROI) y margen de ganancia.</td>
+                                    <td class="p-3">Vidas impactadas, toneladas recicladas, empleos creados.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: EJEMPLOS RESUELTOS -->
+            <section id="ejemplos" class="tab-content hidden space-y-6">
+                <div class="bg-montanoBlue text-white p-4 rounded-xl shadow">
+                    <h2 class="text-2xl font-bold">Casos de Estudio y Ejemplos Resueltos</h2>
+                    <p class="text-sm text-montanoLightBlue">Análisis detallado clasificado por niveles de complejidad en el diseño del modelo de negocio social.</p>
+                </div>
+
+                <!-- BÁSICO -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-montanoGreen border-b-2 border-montanoGreen pb-1">Nivel Básico (Modelos de Concientización y Reciclaje Local)</h3>
+                    
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 1 (Básico)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"EcoCuadernos Escolares"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Desperdicio masivo de hojas en buen estado al final de cada ciclo escolar en colegios privados.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Recolectar papel usado por un solo lado, encuadernarlo artesanalmente y venderlo a bajo costo a escuelas de escasos recursos.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Reduce la tala de árboles y financia talleres de arte gratuitos para niños vulnerables con la venta directa.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 2 (Básico)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Huertos Urbanos Comunitarios"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Inseguridad alimentaria y falta de áreas verdes en zonas marginales urbanas.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Enseñar a vecinos a cultivar hortalizas en techos y solares baldíos utilizando abono orgánico casero.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Venta de excedentes de cosecha en mercados locales para mantener la compra de semillas.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 3 (Básico)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Trueque de Ropa Infantil"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Rápido crecimiento de los niños y desecho prematuro de ropa en buen estado.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Plataforma física o barrial para intercambiar prendas de segunda mano cobrando una cuota mínima de gestión.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Economía circular familiar y apoyo a padres de bajos recursos.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 4 (Básico)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Alfabetización Digital Juvenil"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Brecha digital en adultos mayores que no saben usar teléfonos inteligentes ni banca virtual.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Talleres sabatinos dictados por estudiantes de secundaria a cambio de una simbólica cuota de recuperación.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Inclusión social de la tercera edad y empoderamiento juvenil ciudadano.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 5 (Básico)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Lámparas de Botellas PET (Luz en Casa)"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Viviendas precarias sin iluminación natural durante el día por falta de ventanas.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Instalación de botellas plásticas llenas de agua y cloro en los techos para refractar luz solar hacia adentro.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Ahorro energético familiar y reciclaje directo de plásticos.</p>
+                    </div>
+                </div>
+
+                <!-- INTERMEDIO -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-lg font-bold text-montanoGreen border-b-2 border-montanoGreen pb-1">Nivel Intermedio (Inclusión Laboral y Cadenas de Valor Justas)</h3>
+                    
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 6 (Intermedio)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Café con Propósito (Comercio Justo)"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Explotación de pequeños caficultores locales por intermediarios que pagan precios injustos.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Cooperativa que compra el grano directamente al productor a un precio superior al de mercado y tuesta bajo estándares ecológicos.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Mejora de ingresos familiares rurales y empoderamiento de comunidades indígenas cafetaleras.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 7 (Intermedio)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Moda Sostenible con Artesanos Locales"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Pérdida de técnicas ancestrales de tejido y precariedad económica de los artesanos.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Marca de ropa moderna que fusiona textiles tradicionales con diseño contemporáneo garantizando salario digno.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Preservación cultural y comercialización internacional de productos artesanales.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 8 (Intermedio)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Gestión Inclusiva de Residuos Electrónicos"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Contaminación por metales pesados debido a la basura tecnológica acumulada.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Empresa recicladora que capacita y emplea formalmente a jóvenes en riesgo social para desensamblar aparatos y recuperar metales.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Reducción de riesgos ambientales y reinserción laboral juvenil exitosa.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 9 (Intermedio)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Panadería Inclusiva para Personas con Discapacidad"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Altas tasas de desempleo y discriminación laboral hacia personas con discapacidad intelectual.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Establecimiento comercial operado íntegramente por personal con discapacidad cognitiva apoyado por tutores especializados.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Autonomía económica personal y sensibilización de la clientela local.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 10 (Intermedio)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Agua Potable Comunitaria a Bajo Costo"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Comunidades periurbanas sin acceso a agua potable segura, obligadas a comprar garrafones caros.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Instalación de plantas purificadoras comunitarias gestionadas por la misma junta de vecinos con mantenimiento autosostenible.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Reducción drástica de enfermedades gastrointestinales y gasto familiar.</p>
+                    </div>
+                </div>
+
+                <!-- AVANZADO -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-lg font-bold text-montanoGreen border-b-2 border-montanoGreen pb-1">Nivel Avanzado (Ecosistemas Tecnológicos y Economía Circular de Gran Escala)</h3>
+                    
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 11 (Avanzado)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Plataforma de Donación de Alimentos Excedentes (Banco Digital)"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Millones de toneladas de comida en perfecto estado se desperdician en supermercados mientras hay desnutrición.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Aplicación móvil logística que conecta en tiempo real a restaurantes y supermercados con comedores sociales y albergues.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Mitigación del hambre, reducción de emisiones de metano en vertederos y modelo B2B financiado por patrocinios empresariales.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 12 (Avanzado)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Microfinanciera de Impacto para Mujeres Rurales"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Exclusión financiera de mujeres indígenas que no pueden acceder a créditos bancarios tradicionales.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Otorgamiento de microcréditos solidarios combinados con capacitación obligatoria en gestión de pequeños negocios.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Empoderamiento económico femenino, tasa de retorno de préstamos superior al 98% y desarrollo comunitario autónomo.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 13 (Avanzado)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Bioconstrucción con Materiales Desechados (Eco-Ladrillos Industriales)"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Déficit masivo de vivienda digna y contaminación por residuos plásticos no reciclables.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Planta de transformación que convierte plásticos complejos en bloques modulares térmicos antisísmicos para construir escuelas y casas.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Solución habitacional ecológica a bajo costo con alianzas gubernamentales y municipales.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 14 (Avanzado)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Energía Solar Comunitaria para Zonas Rurales Aisladas"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Aldeas rurales sin acceso a la red eléctrica nacional, limitando la educación nocturna y la salud.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Empresa social que instala micro-redes solares comunitarias operadas mediante sistemas de pago prepago por consumo móvil (Pay-as-you-go).</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Acceso a energía limpia, conectividad y autosostenibilidad financiera a través de tarifas justas por uso.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejemplo 15 (Avanzado)</span>
+                        <h4 class="font-bold text-lg text-montanoBlue mt-2">"Plataforma de Salud Tele-médica Preventiva Comunitaria"</h4>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Problema:</strong> Centros de salud saturados y ausencia de médicos especialistas en comunidades alejadas.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Solución Social:</strong> Red de postas rurales equipadas con tecnología de telemedicina operadas por enfermeras locales conectadas con médicos voluntarios urbanos.</p>
+                        <p class="text-sm text-gray-700 mt-1"><strong>Impacto / Sostenibilidad:</strong> Detección temprana de enfermedades crónicas, reducción de costos de traslado y modelo híbrido de suscripción pública/privada.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: EJERCICIOS PRÁCTICOS -->
+            <section id="ejercicios" class="tab-content hidden space-y-6">
+                <div class="bg-montanoBlue text-white p-4 rounded-xl shadow">
+                    <h2 class="text-2xl font-bold">Ejercicios Prácticos de Diseño de Emprendimiento</h2>
+                    <p class="text-sm text-montanoLightBlue">Resuelve los siguientes planteamientos aplicando la metodología de emprendimiento social paso a paso en tu cuaderno o bitácora.</p>
+                </div>
+
+                <!-- BÁSICO -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-montanoGreen border-b-2 border-montanoGreen pb-1">Ejercicios Nivel Básico</h3>
+                    
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 1</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Identificación de problema comunitario:</p>
+                        <p class="text-sm text-gray-700 mt-1">En tu comunidad escolar notas que los estudiantes desechan cuadernos con muchas páginas limpias al finalizar el año. Define en un párrafo cuál es el problema social/ambiental y qué solución básica propondrías.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 2</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Diferencia fundamental:</p>
+                        <p class="text-sm text-gray-700 mt-1">Explica por qué abrir una tienda de ropa exclusiva de lujo con altos precios no se considera un emprendimiento social, aunque genere empleos.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 3</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Sostenibilidad vs. Caridad:</p>
+                        <p class="text-sm text-gray-700 mt-1">¿Por qué es importante que un emprendimiento social venda un producto o servicio en lugar de vivir únicamente de donaciones o beneficencia?</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 4</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Propuesta de valor verde:</p>
+                        <p class="text-sm text-gray-700 mt-1">Diseña el nombre y el lema (slogan) para un emprendimiento escolar enfocado en reducir el uso de bolsas plásticas en mercados locales.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 5</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Métrica de éxito:</p>
+                        <p class="text-sm text-gray-700 mt-1">Si creas un proyecto para enseñar lectura a niños de la calle, ¿cómo medirías el éxito del emprendimiento más allá del dinero?</p>
+                    </div>
+                </div>
+
+                <!-- INTERMEDIO -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-lg font-bold text-montanoGreen border-b-2 border-montanoGreen pb-1">Ejercicios Nivel Intermedio</h3>
+                    
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 6</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Modelo de Comercio Justo:</p>
+                        <p class="text-sm text-gray-700 mt-1">Un grupo de artesanas teje productos hermosos pero los vende muy baratos a intermediarios. Diseña una estrategia intermedia para mejorar sus ingresos sin perder clientes.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 7</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Inclusión Laboral:</p>
+                        <p class="text-sm text-gray-700 mt-1">¿Qué adaptaciones operativas requeriría una cafetería social que emplea a jóvenes con discapacidad auditiva para garantizar un servicio eficiente?</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 8</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Economía Circular:</p>
+                        <p class="text-sm text-gray-700 mt-1">Explica cómo un negocio de reparación de electrodomésticos viejos fomenta el emprendimiento social frente a la cultura de "comprar y desechar".</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 9</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Financiación híbrida:</p>
+                        <p class="text-sm text-gray-700 mt-1">¿Cómo puede un emprendimiento social obtener capital inicial sin recurrir a préstamos bancarios con altos intereses?</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 10</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Alianzas Estratégicas:</p>
+                        <p class="text-sm text-gray-700 mt-1">Define qué rol juegan las municipalidades o alcaldías locales en el éxito de un emprendimiento de reciclaje comunitario.</p>
+                    </div>
+                </div>
+
+                <!-- AVANZADO -->
+                <div class="space-y-4 pt-4">
+                    <h3 class="text-lg font-bold text-montanoGreen border-b-2 border-montanoGreen pb-1">Ejercicios Nivel Avanzado</h3>
+                    
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 11</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Escalamiento Tecnológico:</p>
+                        <p class="text-sm text-gray-700 mt-1">Diseña la arquitectura básica de una aplicación móvil que reduzca el desperdicio de alimentos conectando panaderías con albergues nocturnos.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 12</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Mitigación de Riesgos:</p>
+                        <p class="text-sm text-gray-700 mt-1">¿Qué sucede si un emprendimiento social que produce eco-ladrillos plásticos se queda sin suficiente materia prima debido a que la gente recicla menos? ¿Cómo se diversifica el riesgo?</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 13</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Evaluación de Impacto Cuantitativo:</p>
+                        <p class="text-sm text-gray-700 mt-1">Calcula el impacto ambiental teórico de una micro-red solar comunitaria que alimenta a 50 hogares rurales que antes usaban lámparas de kerosén altamente contaminantes.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 14</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Gobernanza y Sostenibilidad Financiera:</p>
+                        <p class="text-sm text-gray-700 mt-1">¿Por qué los modelos de franquicia social son efectivos para expandir soluciones a nivel nacional manteniendo el propósito original?</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <span class="bg-montanoOlive text-white text-xs font-bold px-2.5 py-1 rounded">Ejercicio 15</span>
+                        <p class="font-semibold text-montanoBlue mt-2">Auditoría Ética Social:</p>
+                        <p class="text-sm text-gray-700 mt-1">Imagina que un emprendimiento social recibe una fuerte inversión de una empresa multinacional cuestionada por prácticas ambientales dudosas. ¿Qué dilema ético se presenta y cómo debe resolverse?</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: REFLEXIÓN CRÍTICA -->
+            <section id="reflexion" class="tab-content hidden space-y-6">
+                <div class="bg-montanoBlue text-white p-4 rounded-xl shadow">
+                    <h2 class="text-2xl font-bold">Preguntas de Reflexión Crítica</h2>
+                    <p class="text-sm text-montanoLightBlue">Espacio para el análisis profundo, debate grupal y pensamiento lógico sobre el rol del emprendedor en la sociedad actual.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow border-t-4 border-montanoBlue">
+                        <h3 class="font-bold text-montanoBlue text-lg mb-2">1. ¿Debe el Estado resolver todos los problemas sociales?</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Si los gobiernos tienen la obligación de velar por el bienestar de los ciudadanos, ¿por qué son tan necesarios los emprendimientos sociales hoy en día? Analiza las ventajas de la agilidad e innovación ciudadana frente a la burocracia estatal.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow border-t-4 border-montanoGreen">
+                        <h3 class="font-bold text-montanoGreen text-lg mb-2">2. El dilema del crecimiento y la escala</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Cuando un emprendimiento social se vuelve muy grande y exitoso a nivel internacional, ¿corre el riesgo de perder su esencia y volverse una corporación tradicional? ¿Cómo puede una organización proteger su misión social original con el tiempo?
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow border-t-4 border-montanoOlive">
+                        <h3 class="font-bold text-montanoOlive text-lg mb-2">3. Tecnología y Empatía Humana</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Muchas soluciones modernas dependen de aplicaciones y algoritmos. ¿Puede la tecnología resolver problemas profundos de marginación humana sin el contacto directo y la empatía comunitaria cara a cara?
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow border-t-4 border-montanoLightBlue">
+                        <h3 class="font-bold text-montanoBlue text-lg mb-2">4. Ciudadanía Activa en Tercero Básico</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Desde tu rol como estudiante del Colegio Montano, ¿qué pequeño problema en tu entorno inmediato (aula, barrio, familia) te gustaría transformar en un proyecto de emprendimiento social y por dónde empezarías mañana?
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: EVALUACIÓN FORMATIVA -->
+            <section id="evaluacion" class="tab-content hidden space-y-6">
+                <div class="bg-montanoBlue text-white p-4 rounded-xl shadow">
+                    <h2 class="text-2xl font-bold">Evaluación Formativa de Refuerzo</h2>
+                    <p class="text-sm text-montanoLightBlue">Responde las siguientes preguntas de análisis para comprobar tu comprensión sobre conceptos y aplicación práctica del emprendimiento social.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Pregunta 1 -->
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <p class="font-semibold text-montanoBlue">Pregunta 1: ¿Cuál es la diferencia fundamental en el destino de las ganancias entre una empresa comercial tradicional y un emprendimiento social?</p>
+                        <p class="text-xs text-gray-500 mt-2">Analiza y redacta tu respuesta con base en la teoría abordada en la guía.</p>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <p class="font-semibold text-montanoBlue">Pregunta 2: ¿Por qué se dice que el emprendimiento social combina lo mejor del mundo sin fines de lucro (ONG) y el mundo empresarial?</p>
+                        <p class="text-xs text-gray-500 mt-2">Analiza y redacta tu respuesta con base en la teoría abordada en la guía.</p>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <div class="bg-white p-5 rounded-xl shadow border border-montanoLightBlue">
+                        <p class="font-semibold text-montanoBlue">Pregunta 3: Menciona dos indicadores de éxito que utilizaría un emprendedor social en lugar del simple margen de ganancia financiera.</p>
+                        <p class="text-xs text-gray-500 mt-2">Analiza y redacta tu respuesta con base en la teoría abordada en la guía.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer / Whiteboard Control Bar -->
+        <footer class="bg-white p-4 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-2">
+            <p>© 2026 Colegio Montano - Departamento de Innovación Educativa y Diseño Instruccional.</p>
+            <div class="flex items-center space-x-2">
+                <span class="inline-block w-3 h-3 rounded-full bg-montanoBlue"></span>
+                <span>Pizarra Interactiva v3.6 - Canvas LMS Ready</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Tab switching function
+        function switchTab(targetId) {
+            // Hide all tab contents
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+
+            // Show target tab content
+            const activeTab = document.getElementById(targetId);
+            if (activeTab) {
+                activeTab.classList.remove('hidden');
+            }
+
+            // Update button styles
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-target') === targetId) {
+                    btn.className = "tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition bg-montanoBlue text-white shadow";
+                } else {
+                    btn.className = "tab-btn px-4 py-2 rounded-lg font-semibold text-sm transition hover:bg-montanoGreen/80 text-white bg-montanoGreen";
+                }
+            });
+
+            // Scroll whiteboard to top of content
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Fullscreen API implementation
+        function toggleFullScreen() {
+            const elem = document.getElementById('whiteboard-container');
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen().catch(err => {
+                        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+                    });
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
